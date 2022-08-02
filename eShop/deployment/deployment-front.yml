@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: paas
+  name: ms-frontend
+  labels:
+    app: ui
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: ui
+        version: v1
+    spec:
+      containers:
+      - name: ms-frontend
+        image: edhriacr2022.azurecr.io/ms-frontend:1.0
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: paas
+  name: ms-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000

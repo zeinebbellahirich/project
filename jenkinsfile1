@@ -17,11 +17,11 @@ pipeline {
            
       stage(' Build Stage ') {
             steps {
-            sh 'docker images -a'
+            sh 'sudo docker images -a'
             script { 
-            sh 'docker build -t ms-frontend:1.0 frontend'
-            sh 'docker build -t ms-products:1.0 products'
-            sh 'docker build -t ms-shopping-cart:1.0 shopping-cart'
+            sh 'sudo docker build -t ms-frontend:1.0 frontend'
+            sh 'sudo docker build -t ms-products:1.0 products'
+            sh 'sudo docker build -t ms-shopping-cart:1.0 shopping-cart'
          
             
                }

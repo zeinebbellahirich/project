@@ -32,7 +32,7 @@ pipeline {
       
         steps {
                withSonarQubeEnv(installationName: 'Sonarqube'){
-               sh '/usr/share/maven/bin/mvn clean sonar:sonar'
+               sh '/usr/share/maven/bin/mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
                sh 'mvn -Dsonar.analysis.mode=-Dsonar.scm.enabled=false -Dsonar.scm-stats.enabled=false -Dsonar.working.directory=/mypath/target/.sonar'
                }
             }

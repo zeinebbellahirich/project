@@ -32,10 +32,8 @@ pipeline {
       
         steps {
                withSonarQubeEnv(installationName: 'Sonarqube'){
-               sh '/usr/share/maven/bin/mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar 
-               -Dsonar.host.url=http://sonar-server:9000  
-               -Dsonar.language=java -Dsonar.login=admin 
-                -Dsonar.password=cicada
+               sh '/usr/share/maven/bin/mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar '
+               sh 'mvn 
                 -Dsonar.analysis.mode= 
                 -Dsonar.scm.enabled=false 
                 -Dsonar.scm-stats.enabled=false 

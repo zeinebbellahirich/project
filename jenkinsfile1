@@ -32,7 +32,7 @@ pipeline {
       
         steps {
                withSonarQubeEnv(installationName: 'Sonarqube'){
-               sh '/usr/share/maven/bin/mvn sonar:sonar'
+               sh '/usr/share/maven/bin/mvn clean sonar:sonar'
                }
             }
       }

@@ -28,11 +28,11 @@ pipeline {
             }
         }
 
-      stage('Code Quality'){
+      stage('Sonar Code Quality'){
       
-      steps{
-        sh 'echo Sonarqube Code Quality Check Done'
-      }
+        steps {
+               sh "mvn sonar:sonar "
+            }
       }
 
       stage('Test Stage ') {
